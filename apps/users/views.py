@@ -5,6 +5,8 @@ from django.db.models import Q
 from random import choice
 from rest_framework import viewsets
 from rest_framework.mixins import CreateModelMixin
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.authentication import SessionAuthentication
 from .serializers import SmsSerializer, UserRegSerializer
 from rest_framework.response import Response
 from rest_framework import status
@@ -62,9 +64,10 @@ class SmsCodeViewset(CreateModelMixin, viewsets.GenericViewSet):
             return Response({"mobile": "mobile"}, status=status.HTTP_201_CREATED)
 
 
-class UserViewset(CreateModelMixin, viewsets.GenericViewSet):
+class UserViewset(viewsets.ModelViewSet):
     """
     用户
     """
     serializer_class = UserRegSerializer
     queryset = User.objects.all()
+    authentication_classes = (SessionAuthentication, JWTAuthentication)

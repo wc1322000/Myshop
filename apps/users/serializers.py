@@ -56,7 +56,7 @@ class UserRegSerializer(serializers.ModelSerializer):
     用户注册
     '''
     #UserProfile中没有code字段，这里需要自定义一个code字段
-    code = serializers.CharField(required=True, write_only=True, max_length=4, min_length=4,label='验证码',
+    code = serializers.CharField(required=True, write_only=True, max_length=4, min_length=4, label='验证码',
                                  error_messages={
                                         "blank": "请输入验证码",
                                         "required": "请输入验证码",
@@ -69,7 +69,7 @@ class UserRegSerializer(serializers.ModelSerializer):
                                      validators=[UniqueValidator(queryset=User.objects.all(), message="用户已经存在")])
     #输入密码的时候不显示明文
     password = serializers.CharField(
-        style={'input_type': 'password'}, label=True, write_only=True
+        style={'input_type': 'password'}, label="密码", write_only=True, help_text="密码"
     )
 
     # #密码加密保存
