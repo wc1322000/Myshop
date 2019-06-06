@@ -44,8 +44,8 @@ urlpatterns = [
     #drf自带的token认证模式
     #path('api-token-auth/', views.obtain_auth_token),
     #jwt的认证接口
-    #path('login/', obtain_jwt_token),
-
-    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('login/', obtain_jwt_token),
+    #simple jwt的认证接口
+    # path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

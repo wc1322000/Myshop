@@ -167,12 +167,12 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
-#JWT_AUTH = {
+JWT_AUTH = {
 # Token过期时间设置
-#    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
 # 定义与令牌一起发送的Authorization标头值前缀
-#    'JWT_AUTH_HEADER_PREFIX': 'JWT',
-#}
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
