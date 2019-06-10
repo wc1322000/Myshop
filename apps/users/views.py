@@ -72,7 +72,7 @@ class UserViewset(CreateModelMixin, RetrieveModelMixin, mixins.UpdateModelMixin,
     """
     # serializer_class = UserRegSerializer
     queryset = User.objects.all()
-    authentication_classes = (SessionAuthentication, JSONWebTokenAuthentication)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
 
     # 这里需要动态权限配置
     # 1.用户注册的时候不应该有权限限制

@@ -15,7 +15,7 @@ class UserFav(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="用户")
     goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name="商品", help_text="商品id")
-    add_time = models.DateTimeField("添加时间",default=datetime.now)
+    add_time = models.DateTimeField("添加时间", default=datetime.now)
 
     class Meta:
         verbose_name = '用户收藏'
@@ -61,10 +61,10 @@ class UserLeavingMessage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="用户")
     message_type = models.IntegerField(default=1, choices=MESSAGE_CHOICES, verbose_name="留言类型",
                                       help_text=u"留言类型: 1(留言),2(投诉),3(询问),4(售后),5(求购)")
-    subject = models.CharField("主题",max_length=100, default="")
-    message = models.TextField("留言内容",default="",help_text="留言内容")
+    subject = models.CharField("主题", max_length=100, default="")
+    message = models.TextField("留言内容", default="", help_text="留言内容")
     file = models.FileField(upload_to="message/images/", verbose_name="上传的文件", help_text="上传的文件")
-    add_time = models.DateTimeField("添加时间",default=datetime.now)
+    add_time = models.DateTimeField("添加时间", default=datetime.now)
 
     class Meta:
         verbose_name = "用户留言"
