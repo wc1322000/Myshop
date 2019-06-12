@@ -54,19 +54,19 @@ class OrderInfo(models.Model):
     # 支付宝交易号
     trade_no = models.CharField("交易号",max_length=100, unique=True, null=True, blank=True)
     #支付状态
-    pay_status = models.CharField("订单状态",choices=ORDER_STATUS, default="paying", max_length=30)
+    pay_status = models.CharField("订单状态", choices=ORDER_STATUS, default="paying", max_length=30)
     # 订单的支付类型
-    pay_type = models.CharField("支付类型",choices=PAY_TYPE, default="alipay", max_length=10)
-    post_script = models.CharField("订单留言",max_length=200)
-    order_mount = models.FloatField("订单金额",default=0.0)
-    pay_time = models.DateTimeField("支付时间",null=True, blank=True)
+    pay_type = models.CharField("支付类型", choices=PAY_TYPE, default="alipay", max_length=10)
+    post_script = models.CharField("订单留言", max_length=200)
+    order_mount = models.FloatField("订单金额", default=0.0)
+    pay_time = models.DateTimeField("支付时间", null=True, blank=True)
 
     # 用户信息
-    address = models.CharField("收货地址",max_length=100, default="")
-    signer_name = models.CharField("签收人",max_length=20, default="")
-    singer_mobile = models.CharField("联系电话",max_length=11)
+    address = models.CharField("收货地址", max_length=100, default="")
+    signer_name = models.CharField("签收人", max_length=20, default="")
+    singer_mobile = models.CharField("联系电话", max_length=11)
 
-    add_time = models.DateTimeField("添加时间",default=datetime.now)
+    add_time = models.DateTimeField("添加时间", default=datetime.now)
 
     class Meta:
         verbose_name = "订单信息"
@@ -84,9 +84,9 @@ class OrderGoods(models.Model):
     order = models.ForeignKey(OrderInfo, on_delete=models.CASCADE, verbose_name="订单信息", related_name="goods")
     # 两个外键形成一张关联表
     goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name="商品")
-    goods_num = models.IntegerField("商品数量",default=0)
+    goods_num = models.IntegerField("商品数量", default=0)
 
-    add_time = models.DateTimeField("添加时间",default=datetime.now)
+    add_time = models.DateTimeField("添加时间", default=datetime.now)
 
     class Meta:
         verbose_name = "订单商品"

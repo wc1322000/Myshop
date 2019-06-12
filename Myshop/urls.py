@@ -26,7 +26,7 @@ from Myshop.settings import MEDIA_ROOT
 from goods.views import GoodsListViewSet, CategoryViewSet
 from users.views import SmsCodeViewset, UserViewset
 from user_operation.views import UserFavViewset, LeavingMessageViewset, AddressViewset
-from trade.views import ShoppingCartViewset
+from trade.views import ShoppingCartViewset, OrderViewset
 
 router = routers.SimpleRouter()
 router.register(r'goods', GoodsListViewSet, base_name='goods')
@@ -37,6 +37,7 @@ router.register(r'userfavs', UserFavViewset, base_name='userfavs')
 router.register(r'messages', LeavingMessageViewset, base_name='messages')
 router.register(r'address', AddressViewset, base_name='address')
 router.register(r'shopcarts', ShoppingCartViewset, base_name='shopcarts')
+router.register(r'orders', OrderViewset, base_name='orders')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ueditor/', include('DjangoUeditor.urls')),
