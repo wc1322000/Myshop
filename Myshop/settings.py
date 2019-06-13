@@ -29,7 +29,7 @@ SECRET_KEY = 'oi92mwjl3bnxcbdcthu%vgku(vdse+p369jm6m+#1$9pwl1jdh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 #重载系统的用户，让UserProfile生效
 AUTH_USER_MODEL = 'users.UserProfile'
@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'myshop',        #数据库名字
         'USER': 'root',          #账号
         'PASSWORD': '123456',    #密码
-        'HOST': '127.0.0.1',     #IP
+        'HOST': '118.89.200.248',     #IP
         'PORT': '3306',          #端口
         #这里引擎用innodb（默认myisam）
         "OPTIONS": {"init_command": "SET default_storage_engine=INNODB;"}
