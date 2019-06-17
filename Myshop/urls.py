@@ -26,7 +26,8 @@ from Myshop.settings import MEDIA_ROOT
 from goods.views import GoodsListViewSet, CategoryViewSet
 from users.views import SmsCodeViewset, UserViewset
 from user_operation.views import UserFavViewset, LeavingMessageViewset, AddressViewset
-from trade.views import ShoppingCartViewset, OrderViewset
+from trade.views import ShoppingCartViewset, OrderViewset, AlipayView
+from django.views.generic import TemplateView
 
 router = DefaultRouter()
 router.register(r'goods', GoodsListViewSet, base_name='goods')
@@ -50,7 +51,10 @@ urlpatterns = [
     #path('api-token-auth/', views.obtain_auth_token),
     #jwt的认证接口
     path('login/', obtain_jwt_token),
+    # 首页
+    path('index/', TemplateView.as_view(template_name='index.html'), name='index'),
     #simple jwt的认证接口
     # path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('alipay/return/', AlipayView.as_view(), name='alipay'),
 ]

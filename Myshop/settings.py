@@ -183,3 +183,6 @@ JWT_AUTH = {
 REGEX_MOBILE = "^1[358]\d{9}$|^147\d{8}$|^176\d{8}$"
 #云片网APIKEY
 APIKEY = "2e87d17327d4be01608f7c6da23ecea2"
+#支付宝相关配置
+private_key_path = os.path.join(BASE_DIR, 'apps/trade/keys/private_2048.txt')
+ali_pub_key_path = os.path.join(BASE_DIR, 'apps/trade/keys/alipay_key_2048.txt')
